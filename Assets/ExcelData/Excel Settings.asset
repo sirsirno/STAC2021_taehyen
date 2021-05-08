@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Excel Settings
   m_EditorClassIdentifier: 
   TemplatePath: QuickSheet/ExcelPlugin/Templates
-  RuntimePath: ExcelData/Data/Runtime
-  EditorPath: ExcelData/Data/Editor
+  RuntimePath: 
+  EditorPath: 

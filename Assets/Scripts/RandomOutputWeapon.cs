@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityQuickSheet;
 
 public class RandomOutputWeapon : MonoBehaviour
 {
@@ -10,10 +11,6 @@ public class RandomOutputWeapon : MonoBehaviour
     private Sheet1Data data;
 
     private bool isOutput;
-    
-    private void Start()
-    {
-    }
 
     private void Update()
     {
@@ -21,19 +18,19 @@ public class RandomOutputWeapon : MonoBehaviour
         {
             isOutput = true;
             Sheet1Data item;
-            item = PickRandomWeapon(dataSheet);
+            item = PickRandomWeapon();
             Debug.Log($"무기의 이름은 {item.Name}입니다!");
             Invoke("ResetCoolTime", outPutCool);
         }
     }
 
 
-    Sheet1Data PickRandomWeapon(Sheet1 dataSheet)
+    Sheet1Data PickRandomWeapon()
     {
         Sheet1Data item;
         int randNum;
         randNum = Random.Range(0, dataSheet.dataArray.Length);
-        item = dataSheet.dataArray[randNum];
+        item = GameManager.Instance.DataBase[dataSheet.dataArray[randNum].Name];
 
         return item;
     }
