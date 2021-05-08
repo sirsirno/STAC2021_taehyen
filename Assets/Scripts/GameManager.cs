@@ -6,11 +6,14 @@ using UnityQuickSheet;
 
 public class GameManager : MonoSingleton<GameManager>
 {
+    // 여러 씬들을 이동하는 와중에도 있어야할 데이터들을 보관하는 매니저입니다.
 
     Dictionary<string, Sheet1Data> dataBase = new Dictionary<string, Sheet1Data>();
+    List<string> nameData = new List<string>();
 
     [SerializeField] Sheet1 dataSheet = null;
 
+    public List<string> NameData { get { return nameData; } private set { nameData = value; } }
     public Dictionary<string, Sheet1Data> DataBase { get { return dataBase; } private set { dataBase = value; } }
 
     public void OnEnable()
@@ -31,10 +34,10 @@ public class GameManager : MonoSingleton<GameManager>
         DataBase.Clear(); // Data베이스에 값을 넣기 전 한번 비워줌.
         for (int i = 0; i < dataSheet.dataArray.Length; i++)
         {
+            NameData.Add(dataSheet.dataArray[i].Name);
             DataBase.Add(dataSheet.dataArray[i].Name, dataSheet.dataArray[i]);
             Debug.Log(DataBase[dataSheet.dataArray[i].Name].Name);
         }
     }
 
-    // TODO 여러 씬들을 이동하며 데이터 등을 보관할 것임.
 }

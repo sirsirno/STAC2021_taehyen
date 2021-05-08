@@ -26,12 +26,20 @@ MonoBehaviour:
     name: pattern
     isEnable: 0
     isArray: 0
-  - type: 1
+  - type: 5
     name: atk
     isEnable: 0
     isArray: 0
-  - type: 1
+  - type: 5
     name: hp
+    isEnable: 0
+    isArray: 0
+  - type: 1
+    name: Name_Eng
+    isEnable: 0
+    isArray: 0
+  - type: 1
+    name: Name_Kor
     isEnable: 0
     isArray: 0
   - type: 1

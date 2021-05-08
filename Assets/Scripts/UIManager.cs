@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField][Header("플레이어가 근접했을때, 제단위에 띄우는 판넬")]  GameObject AnswerPanel;
+
     public static UIManager Instance = null;
 
     private void Awake()
@@ -21,6 +24,14 @@ public class UIManager : MonoBehaviour
         Instance = null;
     }
 
+    void CallAnswerPanel()
+    {
+        AnswerPanel.SetActive(true);
+    }
+    void ResetAnswePanel()
+    {
+        AnswerPanel.SetActive(false);
+    }
 
 
 }

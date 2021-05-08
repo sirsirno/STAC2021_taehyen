@@ -5,7 +5,6 @@ using UnityQuickSheet;
 
 public class RandomOutputWeapon : MonoBehaviour
 {
-    [SerializeField] Sheet1 dataSheet;
     [SerializeField] float outPutCool;
 
     private Sheet1Data data;
@@ -14,6 +13,8 @@ public class RandomOutputWeapon : MonoBehaviour
 
     private void Update()
     {
+
+
         if(Input.GetMouseButtonDown(0) && !isOutput)
         {
             isOutput = true;
@@ -29,8 +30,9 @@ public class RandomOutputWeapon : MonoBehaviour
     {
         Sheet1Data item;
         int randNum;
-        randNum = Random.Range(0, dataSheet.dataArray.Length - 1);
-        item = GameManager.Instance.DataBase[dataSheet.dataArray[randNum].Name];
+
+        randNum = Random.Range(0, GameManager.Instance.NameData.Count - 1);
+        item = GameManager.Instance.DataBase[GameManager.Instance.NameData[randNum]];
 
         return item;
     }

@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class MainSceneManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    //메인 씬 안에서만 존재하는 데이터들을 관리해주는 매니저입니다.
+    [SerializeField] GameObject Player;
+
+    static public MainSceneManager Instance = null;
+    private void Awake()
     {
-        
+        Instance = this;
+    }
+    private void OnDestroy()
+    {
+        Instance = null;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
