@@ -29,7 +29,7 @@ public class RandomOutputWeapon : MonoBehaviour
     {
         Sheet1Data item;
         int randNum;
-        randNum = Random.Range(0, dataSheet.dataArray.Length);
+        randNum = Random.Range(0, dataSheet.dataArray.Length - 1);
         item = GameManager.Instance.DataBase[dataSheet.dataArray[randNum].Name];
 
         return item;
