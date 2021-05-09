@@ -13,16 +13,16 @@ public class Sheet1Data
   public string Name { get {return name; } set { this.name = value;} }
   
   [SerializeField]
-  string pattern;
-  public string Pattern { get {return pattern; } set { this.pattern = value;} }
+  string type;
+  public string Type { get {return type; } set { this.type = value;} }
   
   [SerializeField]
   float atk;
-  public float Atk { get {return atk; } set { this.atk = value;} }
+  public float ATK { get {return atk; } set { this.atk = value;} }
   
   [SerializeField]
   float hp;
-  public float Hp { get {return hp; } set { this.hp = value;} }
+  public float HP { get {return hp; } set { this.hp = value;} }
   
   [SerializeField]
   string name_eng;
@@ -35,5 +35,9 @@ public class Sheet1Data
   [SerializeField]
   string info;
   public string Info { get {return info; } set { this.info = value;} }
+  
+  [SerializeField]
+  string keyword_for_hard;
+  public string Keyword_For_Hard { get {return keyword_for_hard; } set { this.keyword_for_hard = value;} }
   
 }

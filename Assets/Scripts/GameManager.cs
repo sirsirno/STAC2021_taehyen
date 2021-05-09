@@ -36,7 +36,6 @@ public class GameManager : MonoSingleton<GameManager>
         {
             NameData.Add(dataSheet.dataArray[i].Name);
             DataBase.Add(dataSheet.dataArray[i].Name, dataSheet.dataArray[i]);
-            Debug.Log(DataBase[dataSheet.dataArray[i].Name].Name);
         }
     }
 

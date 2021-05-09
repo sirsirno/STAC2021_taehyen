@@ -23,15 +23,15 @@ MonoBehaviour:
     isEnable: 0
     isArray: 0
   - type: 1
-    name: pattern
+    name: Type
     isEnable: 0
     isArray: 0
   - type: 5
-    name: atk
+    name: ATK
     isEnable: 0
     isArray: 0
   - type: 5
-    name: hp
+    name: HP
     isEnable: 0
     isArray: 0
   - type: 1
@@ -44,6 +44,10 @@ MonoBehaviour:
     isArray: 0
   - type: 1
     name: Info
+    isEnable: 0
+    isArray: 0
+  - type: 1
+    name: Keyword_For_Hard
     isEnable: 0
     isArray: 0
   excelFilePath: Assets/ExcelData/Excel/Data.xlsx

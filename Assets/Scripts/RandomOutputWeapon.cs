@@ -52,8 +52,7 @@ public class RandomOutputWeapon : MonoBehaviour
         Sheet1Data item;
         int randNum;
 
-        randNum = Random.Range(0, (GameManager.Instance.NameData.Count - 1));
-        Debug.Log(randNum);
+        randNum = Random.Range(0, (GameManager.Instance.NameData.Count - 1)); 
         item = GameManager.Instance.DataBase[GameManager.Instance.NameData[randNum]];
 
         return item;

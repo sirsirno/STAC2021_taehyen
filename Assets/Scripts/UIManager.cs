@@ -64,9 +64,9 @@ public class UIManager : MonoBehaviour
     {
         quizPanel.GetComponent<RectTransform>().DOAnchorPosY(0, 3).SetEase(Ease.InOutQuart);
         QuizPanel quizPanelData = quizPanel.GetComponent<QuizPanel>();
-        quizPanelData.atk.text = $"공격력 : {itemData.Atk.ToString()}";
-        quizPanelData.hp.text = $"체력 : {itemData.Hp.ToString()}";
-        quizPanelData.type.text = $"타입 : {itemData.Pattern}";
+        quizPanelData.atk.text = $"공격력 : {itemData.ATK.ToString()}";
+        quizPanelData.hp.text = $"체력 : {itemData.HP.ToString()}";
+        quizPanelData.type.text = $"타입 : {itemData.Type}";
         quizPanelData.itemNameInEng.text = itemData.Name_Eng;
         quizPanelData.itemNameInKor.text = itemData.Name_Kor;
         quizPanelData.info.text = itemData.Info;
