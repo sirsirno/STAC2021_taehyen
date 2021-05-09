@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SheetName: Assets/ExcelData/Excel/Data.xlsx
   WorksheetName: Sheet1
+<<<<<<< HEAD
   dataArray:
   - name: "\uD0A4\uBCF4\uB4DC"
     type: "\uADFC\uAC70\uB9AC"
@@ -122,3 +123,6 @@ MonoBehaviour:
     name_kor: "\uC885"
     info: "\uC5B4\uB5A4\_\uC2DC\uAC04\_\uB610\uB294\_\uC2DC\uAC01\uC744\_\uC54C\uB9AC\uAC70\uB098\_\uC2E0\uD638\uB97C\_\uD558\uAE30\_\uC704\uD558\uC5EC\_\uCE58\uAC70\uB098\_\uD754\uB4E4\uC5B4\_\uC18C\uB9AC\uB97C\_\uB0B4\uB294\_\uAE08\uC18D\_\uAE30\uAD6C.\_\uB9E4\uB2EC\uACE0\_\uB54C\uB824\_\uC6B8\uB9AC\uB294\_\uBC94\uC885(\u68B5\u9418)\uACFC\_\uC548\uC5D0\_\uCD94\uAC00\_\uB2EC\uB824\_\uC788\uC5B4\_\uADF8\_\uC548\uC758\_\uBCBD\uC744\_\uB54C\uB824\_\uC18C\uB9AC\uB97C\_\uB0B4\uB294\_\uD0C1(\u9438),\_\uADF8\uB9AC\uACE0\_\uC18C\uD615\uC73C\uB85C\_\uB41C\_\uBC29\uC6B8\_\uB530\uC704\uAC00\_\uC788\uB2E4."
     keyword_for_hard: "\uC2E0\uD638, \uAE08\uC18D"
+=======
+  dataArray: []
+>>>>>>> 347e25503484501b55e066520c1270c288114101

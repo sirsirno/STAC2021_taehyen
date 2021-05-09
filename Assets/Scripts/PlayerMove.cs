@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    public bool bCanMove = true;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     [SerializeField]
@@ -33,6 +34,9 @@ public class PlayerMove : MonoBehaviour
         animator.SetBool("isground",isGround);
     }
     void Move(){
+        if (bCanMove == false)
+            return;
+
         float inputX = Input.GetAxis("Horizontal");
         if(Input.GetAxisRaw("Jump") != 0){
             if(isGround&&velocityY<=0){

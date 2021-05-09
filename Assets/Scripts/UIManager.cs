@@ -51,6 +51,7 @@ public class UIManager : MonoBehaviour
             }
 
             answerPanel.transform.position = new Vector2(whereIsIt.position.x - 2, whereIsIt.position.y + 1.75f);
+            MainSceneManager.Instance.Player.GetComponent<PlayerMove>().bCanMove = true;
             answerPanel.SetActive(true);
         }
     }
@@ -62,6 +63,7 @@ public class UIManager : MonoBehaviour
 
     public void CallQuizPanel(Sheet1Data itemData)
     {
+        MainSceneManager.Instance.Player.GetComponent<PlayerMove>().bCanMove = false;
         quizPanel.GetComponent<RectTransform>().DOAnchorPosY(0, 3).SetEase(Ease.InOutQuart);
         QuizPanel quizPanelData = quizPanel.GetComponent<QuizPanel>();
         quizPanelData.atk.text = $"°ø°Ý·Â : {itemData.ATK.ToString()}";
