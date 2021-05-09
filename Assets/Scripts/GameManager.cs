@@ -16,7 +16,7 @@ public class GameManager : MonoSingleton<GameManager>
     public List<string> NameData { get { return nameData; } private set { nameData = value; } }
     public Dictionary<string, Sheet1Data> DataBase { get { return dataBase; } private set { dataBase = value; } }
 
-    public void OnEnable()
+    public void Awake()
     {
         InputData();
     }
