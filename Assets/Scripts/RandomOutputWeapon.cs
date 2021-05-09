@@ -8,27 +8,42 @@ public class RandomOutputWeapon : MonoBehaviour
     [SerializeField] float outPutCool = 2f;
     [SerializeField] [Header("플레이어에게 응답을 요청하는 판넬을 띄우는 거리입니다.")] float outAnswerPanelDist = 1f;
 
+    float closePanelTime = 3f;
+    float closePanelTimer = 0f;
     private Sheet1Data data;
 
-    private bool isOutput;
+    private bool isTouched = false;
+    public bool isAleadyOutItem = false;
 
     private void Update()
     {
-        if(Vector2.Distance(MainSceneManager.Instance.Player.transform.position, this.transform.position) >= outAnswerPanelDist)
+        if(Vector2.Distance(MainSceneManager.Instance.Player.transform.position, this.transform.position) <= outAnswerPanelDist)
         { // 플레이어가 제단에 근접 했을 때.
-            UIManager.Instance.CallAnswerPanel(this.transform);
-            if (Input.GetMouseButtonDown(0) && !isOutput)
+
+            UIManager.Instance.CallAnswerPanel(this.transform, isAleadyOutItem); // 이미 사용됐는지에 따라 다른 결과 출력
+
+            if (Input.GetMouseButtonDown(0) && !isTouched)
             {
                 if(isTouch())
                 {
-                    isOutput = true;
+                    isTouched = true;
                     Sheet1Data item;
                     item = PickRandomWeapon();
-                    Debug.Log($"무기의 이름은 {item.Name}입니다!");
-                    Invoke("ResetCoolTime", outPutCool);
+                    UIManager.Instance.CallQuizPanel(item);
+                    //Invoke("ResetCoolTime", outPutCool);
                 }
             }
+            closePanelTimer = 0f;
         }
+        else if(closePanelTimer >= closePanelTime)
+        {
+            UIManager.Instance.ResetAnswerPanel();
+        }
+        else
+        {
+            closePanelTimer += Time.deltaTime;
+        }
+
     }
 
 
@@ -59,11 +74,6 @@ public class RandomOutputWeapon : MonoBehaviour
         {
             return false;
         }
-    }
-
-    void ResetCoolTime()
-    {
-        isOutput = false;
     }
 
 }
