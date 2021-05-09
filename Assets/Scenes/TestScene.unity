@@ -1701,6 +1701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outPutCool: 2
   outAnswerPanelDist: 5
+  isAleadyOutItem: 0
 --- !u!61 &1004735232
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2577,6 +2578,7 @@ MonoBehaviour:
   itemNameInKor: {fileID: 910933117}
   itemNameInEng: {fileID: 1089010881}
   easyInput: {fileID: 1854139816}
+  normalInput: {fileID: 229128615}
   multiplication: {fileID: 1241871940}
   multiplicationText: {fileID: 1230017800}
   checkAnswerBtn: {fileID: 309513730}

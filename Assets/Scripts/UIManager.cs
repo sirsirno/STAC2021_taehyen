@@ -72,6 +72,7 @@ public class UIManager : MonoBehaviour
         quizPanelData.info.text = itemData.Info;
 
         quizPanelData.easyDiffcultyBtn.onClick.AddListener(()=> SetEasyDiffculty(quizPanelData));
+        quizPanelData.normalDiffcultyBtn.onClick.AddListener(() => SetNormalDifficulty(quizPanelData));
 
     }
 
@@ -89,11 +90,42 @@ public class UIManager : MonoBehaviour
 
         quizPanelData.checkAnswerBtn.onClick.AddListener(() => checkBtnInEasy(quizPanelData));
         quizPanelData.easyDiffcultyBtn.onClick.RemoveAllListeners();
+        quizPanelData.normalDiffcultyBtn.onClick.RemoveAllListeners();
+    }
+    public void SetNormalDifficulty(QuizPanel quizPanelData)
+    {
+        quizPanelData.atk.text += " X 1.5";
+        quizPanelData.hp.text += " X 1.5";
+        quizPanelData.normalInput.gameObject.SetActive(true);
+        quizPanelData.easyDiffcultyBtn.gameObject.SetActive(false);
+        quizPanelData.normalDiffcultyBtn.gameObject.SetActive(false);
+        quizPanelData.hardDiffcultyBtn.gameObject.SetActive(false);
+        quizPanelData.checkAnswerBtn.gameObject.SetActive(true);
+        quizPanelData.multiplication.gameObject.SetActive(true);
+        quizPanelData.multiplicationText.text = "정답을 맞출 시 1.5배!";
+
+        quizPanelData.checkAnswerBtn.onClick.AddListener(() => checkBtnInNormal(quizPanelData));
+        quizPanelData.easyDiffcultyBtn.onClick.RemoveAllListeners();
+        quizPanelData.normalDiffcultyBtn.onClick.RemoveAllListeners();
     }
 
     public void checkBtnInEasy(QuizPanel quizPanelData)
     {
         if(quizPanelData.easyInput.text == quizPanelData.itemNameInKor.text)
+        {
+            upgradeResult = true;
+        }
+        else
+        {
+            upgradeResult = false;
+        }
+
+        whereIsOutPut.GetComponent<RandomOutputWeapon>().isAleadyOutItem = true;
+        RemoveQuizPanel();
+    }
+    public void checkBtnInNormal(QuizPanel quizPanelData)
+    {
+        if (quizPanelData.normalInput.text == quizPanelData.itemNameInEng.text)
         {
             upgradeResult = true;
         }
