@@ -6,7 +6,7 @@ using UnityQuickSheet;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    // ¿©·¯ ¾ÀµéÀ» ÀÌµ¿ÇÏ´Â ¿ÍÁß¿¡µµ ÀÖ¾î¾ßÇÒ µ¥ÀÌÅÍµéÀ» º¸°üÇÏ´Â ¸Å´ÏÀúÀÔ´Ï´Ù.
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Å´ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.
 
     Dictionary<string, Sheet1Data> dataBase = new Dictionary<string, Sheet1Data>();
     List<string> nameData = new List<string>();
@@ -15,9 +15,10 @@ public class GameManager : MonoSingleton<GameManager>
 
     public List<string> NameData { get { return nameData; } private set { nameData = value; } }
     public Dictionary<string, Sheet1Data> DataBase { get { return dataBase; } private set { dataBase = value; } }
-
+    public GameObject player{get; private set;}
     public void Awake()
     {
+        player = GameObject.FindObjectOfType<PlayerMove>().gameObject;
         InputData();
     }
 
@@ -26,12 +27,12 @@ public class GameManager : MonoSingleton<GameManager>
         if(dataSheet == null)
         {
 #if UNITY_EDITOR
-            Debug.LogWarning("DataSheet°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù!");
+            Debug.LogWarning("DataSheetï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½!");
 #endif
             return;
         }
 
-        DataBase.Clear(); // Dataº£ÀÌ½º¿¡ °ªÀ» ³Ö±â Àü ÇÑ¹ø ºñ¿öÁÜ.
+        DataBase.Clear(); // Dataï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½ ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
         for (int i = 0; i < dataSheet.dataArray.Length; i++)
         {
             NameData.Add(dataSheet.dataArray[i].Name);
