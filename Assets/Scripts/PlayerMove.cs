@@ -57,7 +57,7 @@ public class PlayerMove : MonoBehaviour
         inputX = Input.GetAxis("Horizontal");
         if(Input.GetAxisRaw("Jump") != 0){
             if(isGround&&velocityY<=0){
-                rigid.velocity=new Vector3(rigid.velocity.x,1f*jumpPower);
+                rigid.velocity=new Vector2(rigid.velocity.x,1f*jumpPower);
                 animator.SetTrigger("jump");
             }
         }
@@ -69,8 +69,8 @@ public class PlayerMove : MonoBehaviour
         //     return;
         // }
         if(!wallChk)
-            rigid.velocity=new Vector3(movespeed * inputX,rigid.velocity.y,0f);
-        else rigid.velocity=new Vector3(0f,rigid.velocity.y,0f);
+            rigid.velocity=new Vector2(movespeed * inputX,rigid.velocity.y);
+        else rigid.velocity=new Vector2(0f,rigid.velocity.y);
         // if(wallChk[0]){
         // }
     }
