@@ -12,7 +12,7 @@ public class EnemyMove : MonoBehaviour
     Rigidbody2D rigid;
 
     [SerializeField]
-    private float movespeed=10,jumpPower,velocityY,distance;
+    private float movespeed=10,jumpPower,velocityY,distance,stopDistance;
     private GameObject player;
     void Start()
     {
@@ -23,7 +23,8 @@ public class EnemyMove : MonoBehaviour
 
     void Update()
     {
-        if(Vector2.Distance(transform.position,player.transform.position)<distance)
+        if(Vector2.Distance(transform.position,player.transform.position)<distance
+        &&Vector2.Distance(transform.position,player.transform.position)>stopDistance)
             Move();
     }
     
