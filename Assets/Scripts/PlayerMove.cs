@@ -19,6 +19,10 @@ public class PlayerMove : MonoBehaviour
     private Transform attackPos;
     [SerializeField]
     private Vector2 boxsize;
+    [SerializeField]
+    private GameObject attackEffect;
+    [SerializeField]
+    private Transform attackEffectPos;
     void Start()
     {
         animator=GetComponent<Animator>();
@@ -81,6 +85,7 @@ public class PlayerMove : MonoBehaviour
                     if (collider.tag == "Enemy")
                     {
                         Debug.Log("hit!");
+                        Instantiate(attackEffect).transform.position = (collider.transform.position*2+attackEffectPos.position)/3;
                     }
                 }
     }
