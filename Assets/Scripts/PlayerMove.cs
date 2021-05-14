@@ -9,11 +9,12 @@ public class PlayerMove : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     [SerializeField]
     private bool isGround;
+    public bool wallChk;
     Rigidbody2D rigid;
     [SerializeField]
     private Transform bottomChk;
     [SerializeField]
-    private float movespeed=10,bottomchkDistance=0.1f,jumpPower,velocityY,coolTime=0f,bCanMoveTime=0f;
+    private float movespeed=10,bottomchkDistance=0.1f,jumpPower,velocityY,coolTime=0f,bCanMoveTime=0f,inputX;
     [SerializeField]
     private Transform attackPos;
     [SerializeField]
@@ -40,7 +41,6 @@ public class PlayerMove : MonoBehaviour
                 animator.SetTrigger("attack");
                 coolTime=0.5f;
                 bCanMoveTime=0.5f;
-                rigid.velocity=Vector2.zero;
             }
         }
     }
@@ -52,13 +52,12 @@ public class PlayerMove : MonoBehaviour
     void Move(){
         if (bCanMove == false)
             return;
-        if (bCanMoveTime > 0f)
-            return;
+        
 
-        float inputX = Input.GetAxis("Horizontal");
+        inputX = Input.GetAxis("Horizontal");
         if(Input.GetAxisRaw("Jump") != 0){
             if(isGround&&velocityY<=0){
-                rigid.velocity=Vector2.up*jumpPower;
+                rigid.velocity=new Vector3(rigid.velocity.x,1f*jumpPower);
                 animator.SetTrigger("jump");
             }
         }
@@ -66,7 +65,14 @@ public class PlayerMove : MonoBehaviour
             transform.rotation=new Quaternion(0f,(inputX>0)?0f:180f,0f,0f);
             animator.SetBool("run",true);
         }else animator.SetBool("run",false);
-        rigid.velocity=new Vector3(movespeed * inputX,rigid.velocity.y,0f);
+        // if (bCanMoveTime > 0f){
+        //     return;
+        // }
+        if(!wallChk)
+            rigid.velocity=new Vector3(movespeed * inputX,rigid.velocity.y,0f);
+        else rigid.velocity=new Vector3(0f,rigid.velocity.y,0f);
+        // if(wallChk[0]){
+        // }
     }
     void Attack(){
         Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(attackPos.position, boxsize, 0);
